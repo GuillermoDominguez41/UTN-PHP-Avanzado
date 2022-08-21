@@ -8,8 +8,6 @@
 
             switch($_GET['GC']){
 
-                // FUNCIONES PARA VER EL CARRITO DE COMPRAS
-
                 case 'listProd':
                     verListaProductos();
                     break;
@@ -28,6 +26,8 @@
                     eliminarProducto($cod_Producto);
                     break;
             }
+        } else{
+            header('Location: unidad7.php?GC=listProd');
         }
     ?>
 
