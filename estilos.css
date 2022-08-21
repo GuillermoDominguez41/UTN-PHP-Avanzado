@@ -181,19 +181,18 @@ h2 {
     width: 30%;
   }
 
-  input[type="submit"] {
+  form.form_Divided input[type="submit"] {
     padding: 3px 5px 3px 5px;
     margin: 10px 0px 0px 0px;
     width: 20% !important;
   }
 
-  input[type="submit"]:hover {
+  form.form_Divided input[type="submit"]:hover {
     background: #f06156;
     color: white;
   }
 
   .tabStyled {
-    width: 95%;
     border-collapse: collapse;
     margin: 5px 0px 0px 0px;
   }
@@ -228,28 +227,6 @@ h2 {
     color: crimson;
   }
 
-
-  a.btnMenu {
-    border: 1px solid gray;
-    border-radius: 8px;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 5px;
-    padding: 0px 5px 0px 5px;
-    margin: 5px 0px 0px 0px;
-    height: 26px;
-    width: 200px;
-  }
-  
-  a.btnMenu:hover {
-    background-color: #ed143d1c;
-  }
-
-  a.btnMenu img {
-    width: 20px;
-  }
-
   td.rowAcciones {
     text-align: center;
   }
@@ -269,4 +246,163 @@ h2 {
 
   img.imgProducto {
     width: 100px;
+  }
+
+/* UNIDAD 07 - BARRA LATERAL */
+
+  div.barra_lateral{
+    padding: 9px 5px 5px 5px;
+    margin: 0px 0px 0px 0px;
+    background-color: #f06156;
+  }
+
+  div.barra_lateral div {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    border: 1px solid white;
+    background: #cccccc;
+  }
+
+  div.barra_lateral p {
+    color: black;
+    font-size: 1.1em;
+    font-weight: 600;
+    margin: 0px;
+  }
+
+  div.barra_lateral img {
+    width: 35px;
+  }
+
+  div.barra_lateral ul{
+    margin: 0px 0px 10px 0px;
+    padding-bottom:5px ;
+    background-color: white;
+  }
+
+  .barra_lateral ul li {
+    padding: 3px 0px 3px 0px;
+  }
+
+  .barra_lateral ul li a {
+    color: black;
+    font-size: 1em;
+  }
+
+/* UNIDAD 07 - FORMULARIO */
+  .GP_Formulario {
+    border: 1px solid gray;
+    margin: 0px 0px 0px 0px;
+    width: 70%;
+  }
+
+  .GP_Formulario p{
+    background-color: #cccccc;
+    margin: 0px 0px 8px 0px;
+    padding: 6px;
+    font-size: 1.1em;
+    font-weight: 600;
+  }
+
+  .GP_Formulario div{
+    display: flex;
+    flex-direction: column;
+    margin: 0px 10px 8px 10px;
+  }
+
+  .GP_Formulario input[type="submit"] {
+    padding: 3px 5px 3px 5px;
+    margin: 0px 0px 10px 10px;
+    width: 20% !important;
+    background: #f06156;
+    color: white;
+  }
+
+  .GP_Formulario input[type="submit"]:hover {
+    background: #cccccc;
+    color: black;
+  }
+
+/* UNIDAD 07 - TABLA PRODUCTOS */
+  .GP_Grilla {
+    border: 1px solid gray;
+    margin: 0px 0px 0px 0px;
+  }
+
+  .GP_Grilla div.encabezado{
+    display: flex;
+    flex-direction: row;
+  }
+
+  .GP_Grilla div.encabezado div{
+    background-color: #cccccc;
+    height: 37px;
+    padding: 0px 8px 0px 8px;
+  }
+  
+  .GP_Grilla p.subtitulo {
+    background-color: #cccccc;
+    margin: 0px 0px 8px 0px;
+    padding: 6px;
+    font-size: 1.1em;
+    font-weight: 600;
+    width: 100%;
+    height: 25px;
+  }
+
+  a.btnMenu {
+    border: 1px solid gray;
+    background-color: white;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 5px;
+    padding: 0px 5px 0px 5px;
+    margin: 5px 0px 0px 0px;
+    height: 26px;
+    justify-content: center;
+    width: 150px;
+  }
+  
+  a.btnMenu:hover {
+    background-color: #ed143d1c;
+  }
+
+  a.btnMenu img {
+    width: 20px;
+  }
+
+  .GP_Grilla table{
+    margin: 0px 7px 7px 7px;
+  }
+
+/* UNIDAD 07 - AVISOS */
+  .GP_Avisos {
+    border: 1px solid gray;
+    margin: 10px 0px 0px 0px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .GP_Avisos p {
+    background-color: #cccccc;
+    margin: 0px 0px 7px 0px;
+    padding: 6px;
+    font-size: 1.1em;
+    font-weight: 600;
+  }
+
+  .GP_Avisos span {
+    padding: 0px 5px 5px 5px;
+    font-weight: 600;
+  }
+
+  .GP_Avisos span.validate {
+    color: green;
+  }
+
+  .GP_Avisos span.error {
+    color: crimson;
   }

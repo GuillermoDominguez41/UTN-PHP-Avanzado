@@ -8,6 +8,7 @@
             switch($_GET['GP']){
                 case 'listProd':
                     verListaProductos();
+                    alertaUsuario();
                     break;
     
                 case 'formNewProd':
@@ -28,7 +29,7 @@
                     if(isset($cod_Producto) && GP->existeProducto($cod_Producto)){
                         form_actualizarProducto($cod_Producto);
                     }else{
-                        echo "<p class='error'>No se asigno el codigo de producto a modificar</p>";
+                        echo "<p class='error'>No se asigno el codigo de producto a modificar o el producto no existe</p>";
                     };
                     break;
             
@@ -42,7 +43,7 @@
                     if(isset($cod_Producto) && GP->existeProducto($cod_Producto)){
                         form_eliminarProducto($cod_Producto);
                     }else{
-                        echo "<p class='error'>No se asigno el codigo de producto a eliminar</p>";
+                        echo "<p class='error'>No se asigno el codigo de producto a eliminar o el producto no existe</p>";
                     };
                     break;
                 
@@ -60,12 +61,15 @@
         function verListaProductos(){
             $lista_prod = GP->listarProductos();
     ?>
-            <div class="seccionEncabezado">
+        <div class="GP_Grilla">
+            <div class="encabezado">
                 <p class="subtitulo" >Listado de Productos</p>
-                <a href='unidad7.php?GP=formNewProd' class='btnMenu' >
-                    <img src='unidad07/img/Boton_agregar.png' alt='Agragar item'>
-                    <p>Añadir producto</p>
-                </a>
+                <div>
+                    <a href='unidad7.php?GP=formNewProd' class='btnMenu' >
+                        <img src='unidad07/img/Boton_agregar.png' alt='Agragar item'>
+                        <p>Añadir producto</p>
+                    </a>
+                </div>
             </div>
             <table class='tabStyled'>
                 <tr>
@@ -96,7 +100,7 @@
                     </td>
                 </tr>";
             }
-            echo "</table>";
+            echo "</table></div>";
         }
     ?>
             
@@ -106,18 +110,20 @@
     <?php 
         function form_agregarProducto(){
             echo "
-                <p class='subtitulo'>Carga de Producto<p>
-                <form action='unidad7.php?GP=newProd' method='POST' class='form_Divided'>
-                    <input type='text' name='codigo' placeholder='Codigo' required>
-                    <input type='text' name='producto' placeholder='Nombre' required>
-                    <input type='text' name='descripcion' placeholder='Descripcion' required>
-                    <select name='categoria' required>
-                        <option value='Mueble'>Mueble</option>
-                        <option value='Libreria'>Libreria</option>
-                        <option value='Almacen'>Almacen</option>
-                    </select>
-                    <input type='number' name='precio' placeholder='Precio' required>
-                    <input type='text' name='pathImagen' placeholder='Ruta de imagen' required>
+                <form action='unidad7.php?GP=newProd' method='POST' class='GP_Formulario'>
+                    <p>Carga de Producto</p>
+                    <div>
+                        <input type='text' name='codigo' placeholder='Codigo' required>
+                        <input type='text' name='producto' placeholder='Nombre' required>
+                        <input type='text' name='descripcion' placeholder='Descripcion' required>
+                        <select name='categoria' required>
+                            <option value='Mueble'>Mueble</option>
+                            <option value='Libreria'>Libreria</option>
+                            <option value='Almacen'>Almacen</option>
+                        </select>
+                        <input type='number' name='precio' placeholder='Precio' required>
+                        <input type='text' name='pathImagen' placeholder='Ruta de imagen' required>
+                    </div>
                     <input type='submit' value='Cargar'>
                 </form>
             ";
@@ -127,8 +133,7 @@
                 GP->agregarProducto(
                     $_POST['codigo'], $_POST['producto'], $_POST['descripcion'], $_POST['categoria'], $_POST['precio'], $_POST['pathImagen']
                 );
-                header('Location: unidad7.php?GP=listProd');
-                echo "<p class='validate'>Se añadio el producto correctamente</p>";
+                header('Location: unidad7.php?GP=listProd&TXT=newOK');
         }
     ?>
 
@@ -138,18 +143,20 @@
         function form_actualizarProducto($cod){
             $producto = GP->seleccionarProducto($cod);
             echo "
-                <p class='subtitulo'>Modificar Producto<p>
-                <form action='unidad7.php?GP=editProd' method='POST' class='form_Divided'>
-                    <input type='text' name='codigo' placeholder='Codigo' value='".$producto[0]['codigo']."' required readonly>
-                    <input type='text' name='producto' placeholder='Nombre' value='".$producto[0]['producto']."' required>
-                    <input type='text' name='descripcion' placeholder='Descripcion' value='".$producto[0]['descripcion']."' required>
-                    <select name='categoria' value='".$producto[0]['categoria']."' required>
-                        <option value='Mueble'>Mueble</option>
-                        <option value='Libreria'>Libreria</option>
-                        <option value='Almacen'>Almacen</option>
-                    </select>
-                    <input type='number' name='precio' placeholder='Precio' value='".$producto[0]['precio']."' required>
-                    <input type='text' name='pathImagen' placeholder='Ruta de imagen' value='".$producto[0]['pathImg']."' required>
+                <form action='unidad7.php?GP=editProd' method='POST' class='GP_Formulario'>
+                    <p>Actualizar informacion de producto</p>
+                    <div>
+                        <input type='text' name='codigo' placeholder='Codigo' value='".$producto[0]['codigo']."' required readonly>
+                        <input type='text' name='producto' placeholder='Nombre' value='".$producto[0]['producto']."' required>
+                        <input type='text' name='descripcion' placeholder='Descripcion' value='".$producto[0]['descripcion']."' required>
+                        <select name='categoria' value='".$producto[0]['categoria']."' required>
+                            <option value='Mueble'>Mueble</option>
+                            <option value='Libreria'>Libreria</option>
+                            <option value='Almacen'>Almacen</option>
+                        </select>
+                        <input type='number' name='precio' placeholder='Precio' value='".$producto[0]['precio']."' required>
+                        <input type='text' name='pathImagen' placeholder='Ruta de imagen' value='".$producto[0]['pathImg']."' required>
+                        </div>
                     <input type='submit' value='Actualizar'>
                 </form>
             ";
@@ -159,8 +166,7 @@
             $respuesta = GP->actualizarProducto(
                 $_POST['codigo'], $_POST['producto'], $_POST['descripcion'], $_POST['categoria'], $_POST['precio'], $_POST['pathImagen']
             );
-            header('Location: unidad7.php?GP=listProd');
-            echo "<p class='validate'>Se actualizo el producto correctamente</p>";
+            header('Location: unidad7.php?GP=listProd&TXT=actOK');
         }
     ?>
 
@@ -188,12 +194,43 @@
 
             if($respuesta == 'Si'){
                 GP->quitarProducto($codProd);
-                header('Location: unidad7.php?GP=listProd');
-                echo "<p class='validate'>Se elimino el producto correctamente</p>";
+                header('Location: unidad7.php?GP=listProd&TXT=eliOK');
             } else{
-                header('Location: unidad7.php?GP=listProd');
-                echo "<p class='error'>Se cancelo la solicitud</p>";
+                header('Location: unidad7.php?GP=listProd&TXT=eliNOK');
             }
         }
 
+    ?>
+
+
+<!-- FUNCIONES GENERALES -->
+<?php 
+        function alertaUsuario(){
+            if(isset($_GET['TXT'])){
+                echo "
+                    <div class='GP_Avisos'>
+                        <p>Notificaciones</p>
+                ";
+
+                switch ($_GET['TXT']) {
+                    case 'newOK':
+                        echo "<span class='validate'>Se añadio el producto correctamente</span>";
+                        break;
+
+                    case 'actOK':
+                        echo "<span class='validate'>Se actualizo el producto correctamente</span>";
+                        break;
+                    
+                    case 'eliOK':
+                        echo "<span class='validate'>Se elimino el producto correctamente</span>";
+                        break;
+
+                    case 'eliNOK':
+                        echo "<span class='error'>Se cancelo la solicitud</span>";
+                        break;
+                }
+
+                echo "</div>";
+            }
+        }
     ?>

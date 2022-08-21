@@ -36,13 +36,20 @@
 
 	</section>
 	<aside>
-		<nav class="barra_lateral">
-			<p>Accesos Rapidos</p>
+		<div class="barra_lateral">
+			<div ><img src="unidad07/img/Boton_GP.png"><p>Gestion de Productos</a></div>
 			<ul>
-				<li><a href="unidad7.php?GP=listProd">Gestion de Productos</a></li>
-				<li><a href="unidad7.php?GC=listProd">Comprar Productos</a></li>
+				<li><a href="unidad7.php?GP=listProd">Ver listado de productos</a></li>
+				<li><a href="unidad7.php?GP=formNewProd">Añadir nuevo producto</a></li>
 			</ul>
-		</nav>
+			<div ><img src="unidad07/img/Boton_GC.png"><p>Gestion de Compras</a></div>
+			<ul>
+				<li><a href="unidad7.php?GC=listProd">Ver catalogo de productos</a></li>
+				<li><a href="unidad7.php?GC=verCarrito">Ver carrito de compras</a></li>
+			</ul>
+
+				<!-- <li><a href="unidad7.php?GC=listProd">Comprar Productos</a></li> -->
+		</div>
   	</aside>
 	<footer>
 		<a href="https://site.elearning-total.com/courses/?com=lb">Programación en PHP y MySQL - Nivel Avanzado</a>

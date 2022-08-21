@@ -19,6 +19,7 @@
 
                 case 'verCarrito':
                     verCarrito();
+                    alertaUsuario();
                     break;
                 
                 case 'quitarProd':
@@ -69,13 +70,11 @@
 // AGREGAR PRODUCTO AL CARRITO    
         function agregarProducto($codigo){
             if(GC->existeProducto($codigo)){
-                header('Location: unidad7.php?GC=verCarrito');
-                echo "<p class='error'>El producto ya esta en el catalogo</p>";
+                header('Location: unidad7.php?GC=verCarrito&TXT=agrNOK');
             } else{
                 $prod = GP->seleccionarProducto($codigo);
                 GC->agregarProducto($prod[0]['codigo'], $prod[0]['producto'], $prod[0]['descripcion'], $prod[0]['precio']);
-                header('Location: unidad7.php?GC=verCarrito');
-                echo "<p class='validate'>Se añadio el producto correctamente</p>";
+                header('Location: unidad7.php?GC=verCarrito&TXT=agrOK');
             }
         } 
 
@@ -90,7 +89,7 @@
                 $lista_prod = GC->listarProductos();
                 echo "
                 <div class='seccionEncabezado'>
-                    <p class='subtitulo' >Carrito de Productos</p>
+                    <p class='subtitulo' >Carrito de Compras</p>
                 </div>
                 <table class='tabStyled'>
                     <tr>
@@ -120,7 +119,7 @@
 
             echo "
                 <a href='unidad7.php?GC=listProd' class='btnMenu' >
-                    <img src='unidad07/img/Boton_Compras.png' alt='Continuar Comprando'>
+                    <img src='unidad07/img/Boton_GC.png' alt='Continuar Comprando'>
                     <p>Continuar comprando</p>
                 </a>";
         }
@@ -130,8 +129,28 @@
     <?php
         function eliminarProducto($codProd){
             GC->quitarProducto($codProd);
-            header('Location: unidad7.php?GC=verCarrito');
-            echo "<p class='validate'>Se elimino el producto correctamente</p>";
+            header('Location: unidad7.php?GC=verCarrito&TXT=eliOK');
         }
     ?>
 
+
+<!-- FUNCIONES GENERALES -->
+    <?php 
+        function alertaUsuario(){
+            if(isset($_GET['TXT'])){
+                switch ($_GET['TXT']) {
+                    case 'agrNOK':
+                        echo "<p class='error'>El producto ya esta en el carrito</p>";
+                        break;
+
+                    case 'agrOK':
+                        echo "<p class='validate'>Se añadio el producto al carrito correctamente</p>";
+                        break;
+                    
+                    case 'eliOK':
+                        echo "<p class='validate'>Se elimino el producto correctamente</p>";
+                        break;
+                }
+            }
+        }
+    ?>
