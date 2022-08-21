@@ -1,0 +1,272 @@
+.container {
+  width:1080px;
+  margin:0px auto;
+  font-size:1em;
+  font-family: "Arial", Georgia, Serif;
+  font-size: 15px;
+}
+header {
+  text-align:center;
+  border: 1px solid #666;
+  background: #cccccc;
+}
+a {
+  color: #333;
+  text-decoration: none;
+}
+section,aside {
+  margin-top: 5px;
+  padding: 10px;
+  -moz-border-radius:3px;-webkit-border-radius:3px;-o-border-radius:3px;border-radius:3px;
+}
+section {
+  float: left;
+  width: 70%;
+  background: #fafafa;
+  border: 1px solid #ccc;
+}
+aside {
+  float: right;
+  width: 25%;
+  background:#ccc;
+  color: #333;
+}
+nav {
+  padding:0.2%;
+  background:#f06156;
+  margin-top: 0.5%;
+}
+nav ul {
+  list-style-type:none;
+  padding:0px;
+  width: 100%;
+  display: table;
+  text-align: center;
+}
+nav ul li {
+  display: inline;
+}
+nav ul li:hover {
+  background-color: #ccc;
+  text-decoration: underline;
+}
+nav ul li a {
+ display:inline-block;
+ text-align:center;
+ text-decoration:none;
+ color: #75302a;
+ font-weight: bold;
+  padding:6px 15px;
+  margin:2px;
+  background:#fafafa;
+  -moz-border-radius:3px;-webkit-border-radius:3px;-o-border-radius:3px;border-radius:3px;
+}
+footer {
+  position: fixed;
+  width: 100%;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 10px 0px 10px 0px;
+  background-color: #333;
+  text-align: center;
+}
+footer a {
+  color: #fff;
+}
+
+h2 {
+  color: #f06156;
+}
+/* pantalla maximo 980px */
+@media screen and (max-width:980px) {
+  .container {
+    width:98%;
+  }
+  section {
+    width:68%;
+  }
+}
+ 
+/* pantalla maximo 700px */
+@media screen and (max-width:700px) {
+  aside,section {
+    float:none;
+    width:96%;
+    font-size:1.2em;
+  }
+  nav, section {
+    font-size:1.2em;
+  }
+  aside {
+    margin-top:5px;
+    background:#333;
+    color: #fff;
+  }
+  nav ul {
+    float:none;
+    clear:both;
+  }
+}
+ 
+ 
+/* pantalla maximo 480px */
+@media screen and (max-width:480px) {
+  aside {
+    display:block;
+    background:#333;
+    color: #fff;
+    font-size:1.5em;
+  }
+  nav, section {
+    font-size:1.5em;
+  }
+  section {
+    width:94%;
+  }
+  nav ul {
+    display: table;
+    text-align: center;
+    float: none;
+    width:100%;
+  }
+  nav ul li {
+    float:none;
+  }
+}
+
+/* Fragmento actualizado por Guillermo Dominguez */
+
+  .form_Defalut {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    width: 60%;
+    padding: 5px 0px 0px 8px;
+    margin: 0px 0px 30px 0px;
+  }
+
+  form.form_Divided{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    width: 90%;
+    padding: 5px 0px 0px 8px;
+    margin: 0px 0px 30px 0px;
+  }
+
+  form.form_Divided p {
+    margin: 0px;
+    padding: 8px 0px 5px 0px;
+    text-decoration: underline;
+    font-weight: 600;
+  }
+
+  form.form_Divided div {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    align-content: center;
+  }
+
+  form.form_Divided input, form.form_Divided textarea {
+    width: 96%;
+  }
+
+  .col_1 {
+    width: 65%;
+  }
+
+  .col_2 {
+    width: 30%;
+  }
+
+  input[type="submit"] {
+    padding: 3px 5px 3px 5px;
+    margin: 10px 0px 0px 0px;
+    width: 20% !important;
+  }
+
+  input[type="submit"]:hover {
+    background: #f06156;
+    color: white;
+  }
+
+  .tabStyled {
+    width: 95%;
+    border-collapse: collapse;
+    margin: 5px 0px 0px 0px;
+  }
+
+  .tabStyled, .tabStyled td, .tabStyled tr {
+    border: 1px solid grey;
+  }
+
+  .tabStyled td{
+    padding: 0px 5px 0px 5px;
+    font-size: 0.85em;
+  }
+
+  .tabStyled tr:first-child{
+    background-color: #f06156;
+    color: white;
+    font-weight: 600;
+  }
+
+  p.subtitulo{
+    text-decoration: underline;
+    font-weight: 600;
+    margin: 15px 0px 0px 0px;
+    padding: 0px 0px 0px 0px;
+  }
+
+  p.validate{
+    color: green;
+  }
+
+  p.error{
+    color: crimson;
+  }
+
+
+  a.btnMenu {
+    border: 1px solid gray;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 5px;
+    padding: 0px 5px 0px 5px;
+    margin: 5px 0px 0px 0px;
+    height: 26px;
+    width: 200px;
+  }
+  
+  a.btnMenu:hover {
+    background-color: #ed143d1c;
+  }
+
+  a.btnMenu img {
+    width: 20px;
+  }
+
+  td.rowAcciones {
+    text-align: center;
+  }
+
+  a.btn_action img {
+    width: 18px;
+  }
+
+  input[readonly] {
+    background-color: #ef000030;
+    font-weight: 600;
+  }
+
+  footer{
+    display: none !important;
+  }
+
+  img.imgProducto {
+    width: 100px;
+  }
