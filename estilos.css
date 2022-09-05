@@ -406,3 +406,14 @@ h2 {
   .GP_Avisos span.error {
     color: crimson;
   }
+
+  div.btn_Acceso {
+    border: 1px solid darkblue;
+    padding: 8px;
+    background-color: #ffd4d1;
+    font-size: 1.1em;
+    font-weight: 600;
+    width: 100px;
+    display: inline-flex;
+    justify-content: center;
+  }
